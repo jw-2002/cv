@@ -18,27 +18,30 @@ const slides = [
     title: "What you can find here",
     body: "Audio (.mp3) and video (.mp4) are both supported, and everything lives in public/media as static files.",
   },
-  {
-    title: "Keep it simple",
-    body: "Nothing fancy: minimal layout, readable type, and quick navigation between demos and about.",
-  },
 ];
 ---
 
 <DefaultTemplate title="jw-2002" metaDescription="jw-2002 website root">
   <section class="page-header">
-    <h1>Home</h1>
+    <p class="status-label">Desktop Start Menu</p>
   </section>
 
   <Carousel slides={slides} />
-</DefaultTemplate>
 
-<style>
-  ul {
-    margin: 0;
-    padding-left: 1.25rem;
-    color: var(--color-muted);
-    display: grid;
-    gap: var(--space-2xs);
-  }
-</style>
+  <section class="card stack">
+    <h2>Quick links</h2>
+    <p>
+      Prefer inline links? Try this:
+      <a class="text-link" href={link("/demos")}>open demos as text-link</a>.
+    </p>
+    <ul class="list-clean">
+      <li>
+        <a href={link("/demos")}>Open the demos library</a>
+      </li>
+      <li>
+        Drop <code>.mp3</code> and <code>.mp4</code> files into <code>public/media</code>.
+      </li>
+      <li>Refresh the page and they appear automatically.</li>
+    </ul>
+  </section>
+</DefaultTemplate>

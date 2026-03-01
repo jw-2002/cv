@@ -1,84 +1,39 @@
-.glass-nav {
+nav {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: 18px;
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.12));
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.12),
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-  backdrop-filter: blur(12px) saturate(1.2);
-  -webkit-backdrop-filter: blur(12px) saturate(1.2);
-}
-
-.glass-nav:hover {
-  transform: scale(101%);
-}
-
-.glass-nav::before {
-  content: "";
-  position: absolute;
-  inset: -30% 10% auto auto;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-  opacity: 0.65;
-  transform: rotate(8deg);
-  filter: blur(4px);
-}
-
-.glass-nav::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  box-shadow:
-    inset 2px 2px 1px rgba(255, 255, 255, 0.45),
-    inset -2px -2px 6px rgba(0, 0, 0, 0.08);
-  pointer-events: none;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised);
+  margin: 0 auto var(--space-md);
+  max-width: 1080px;
 }
 
 .nav-brand,
-.glass-nav ul {
+nav ul {
   position: relative;
   z-index: 1;
 }
 
 .nav-brand {
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: var(--color-text);
 }
 
-.glass-nav ul {
+nav ul {
   list-style: none;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   margin: 0;
   padding: 0;
-}
-
-.glass-nav a {
-  text-decoration: none;
-  font-weight: 600;
-  padding: var(--space-2xs) var(--space-xs);
-  border-radius: 12px;
-  border: 1px solid transparent;
-  transition:
-    border var(--transition),
-    color var(--transition),
-    background var(--transition),
-    transform var(--transition);
-}
-
-.glass-nav a:hover {
-  border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.35);
 }

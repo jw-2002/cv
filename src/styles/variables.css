@@ -1,22 +1,27 @@
 :root {
-  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Press Start 2P", "Courier New", Courier, monospace;
+  --font-body: "VT323", "Lucida Console", "Courier New", monospace;
+  --font-ui: "Tahoma", "Verdana", "Segoe UI", sans-serif;
 
-  --color-bg: #ffffff;
-  --color-text: #0f0f0f;
-  --color-muted: #4a4a4a;
-  --color-border: #e3e3e3;
-  --color-panel: #f7f7f7;
+  --color-green: #004225;
+  --color-purple: #6f2dbd;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #101010;
+  --color-muted: #234637;
+  --color-border: var(--color-black);
 
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
+  --space-sm: 0.85rem;
   --space-md: 1.25rem;
   --space-lg: 2rem;
   --space-xl: 3rem;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
+  --radius-sm: 0;
+  --radius-md: 0;
 
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --transition: 180ms ease;
+  --shadow-raised: 2px 2px 0 0 var(--color-border);
+  --transition: 100ms steps(2, end);
 }

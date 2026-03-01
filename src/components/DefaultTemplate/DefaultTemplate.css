@@ -1,3 +1,7 @@
 main {
-  padding-top: 2rem;
+  position: relative;
+  padding: var(--space-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised);
 }

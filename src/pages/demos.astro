@@ -32,13 +32,13 @@ try {
 <DefaultTemplate title="Demos" metaDescription="Listen back to your audio and video takes.">
   <section class="page-header">
     <div class="stack">
-      <p class="label">Demos</p>
+      <p class="status-label">Demos</p>
       <h1>Drop clips, press play</h1>
       <p>Add .mp3 or .mp4 files into <code>public/media</code>. They will show up here automatically.</p>
     </div>
     <div class="card stack instructions">
       <strong>How to add files</strong>
-      <ol>
+      <ol class="list-clean">
         <li>Place your clips in <code>public/media</code>.</li>
         <li>Use short file names so they display cleanly.</li>
         <li>Refresh the page to see new items.</li>
@@ -77,37 +77,23 @@ try {
 </DefaultTemplate>
 
 <style>
-  .label {
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-  }
-
-  code {
-    background: var(--color-panel);
-    padding: 0.15rem 0.35rem;
-    border-radius: 4px;
-    border: 1px solid var(--color-border);
-  }
-
-  ol {
-    margin: 0;
-    padding-left: 1.25rem;
-    color: var(--color-muted);
-    display: grid;
-    gap: var(--space-2xs);
-  }
-
   .instructions strong {
-    font-size: 1rem;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .instructions li {
+    line-height: 1.25;
   }
 
   audio,
   video {
     width: 100%;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
-    background: #000;
+    border-radius: 0;
+    border: 2px solid var(--color-border);
+    background: var(--color-black);
+    box-shadow: var(--shadow-raised);
   }
 </style>
