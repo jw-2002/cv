@@ -1,16 +1,13 @@
 :root {
-  --font-display: "Press Start 2P", "Courier New", Courier, monospace;
-  --font-body: "VT323", "Lucida Console", "Courier New", monospace;
-  --font-ui: "Tahoma", "Verdana", "Segoe UI", sans-serif;
+  --font-heading: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
 
-  --color-green: #004225;
-  --color-purple: #6f2dbd;
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --color-bg: #f4f0e8;
   --color-surface: #ffffff;
-  --color-text: #101010;
-  --color-muted: #234637;
-  --color-border: var(--color-black);
+  --color-text: #111111;
+  --color-muted: #555555;
+  --color-border: #d0cdc8;
+  --color-border-strong: #444444;
 
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
@@ -19,9 +16,6 @@
   --space-lg: 2rem;
   --space-xl: 3rem;
 
-  --radius-sm: 0;
-  --radius-md: 0;
-
-  --shadow-raised: 2px 2px 0 0 var(--color-border);
-  --transition: 100ms steps(2, end);
+  --radius: 2px;
+  --transition: 150ms ease;
 }

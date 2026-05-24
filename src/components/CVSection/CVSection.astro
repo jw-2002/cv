@@ -1,0 +1,43 @@
+---
+import "./CVSection.css";
+
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { title, open = false } = Astro.props;
+---
+
+<details class="cv-section" open={open}>
+  <summary class="cv-section-summary">
+    <h2 class="cv-section-title">{title}</h2>
+    <span class="cv-section-arrow" aria-hidden="true">+</span>
+  </summary>
+  <div class="cv-section-body">
+    <slot />
+  </div>
+</details>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>(".cv-section").forEach((details) => {
+    const summary = details.querySelector(".cv-section-summary")!;
+    const body = details.querySelector<HTMLElement>(".cv-section-body")!;
+
+    summary.addEventListener("click", (e) => {
+      if (!details.open) return; // opening — let the browser handle it, CSS animates
+
+      // Closing — animate out before removing `open`
+      e.preventDefault();
+      body.classList.add("closing");
+      body.addEventListener(
+        "animationend",
+        () => {
+          body.classList.remove("closing");
+          details.open = false;
+        },
+        { once: true },
+      );
+    });
+  });
+</script>

@@ -1,4 +1,1 @@
-export default [
-  { title: "Home", url: "/" },
-  { title: "Demos", url: "/demos" },
-];
+export default [] as { title: string; url: string }[];

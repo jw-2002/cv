@@ -1,47 +1,402 @@
 ---
 import DefaultTemplate from "../components/DefaultTemplate/DefaultTemplate.astro";
-import Carousel from "../components/Carousel/Carousel.astro";
-
-const rawBase = import.meta.env.BASE_URL || "/";
-const base = rawBase.endsWith("/") ? rawBase : `${rawBase}/`;
-const link = (path: string) => {
-  if (!path || path === "/") return "/";
-  return `${base}${path.replace(/^\/+/, "")}`;
-};
-
-const slides = [
-  {
-    title: "Why this exists",
-    body: "I just wanted a place to put things to remember!",
-  },
-  {
-    title: "What you can find here",
-    body: "Audio (.mp3) and video (.mp4) are both supported, and everything lives in public/media as static files.",
-  },
-];
+import CVHeader from "../components/CVHeader/CVHeader.astro";
+import CVSection from "../components/CVSection/CVSection.astro";
 ---
 
-<DefaultTemplate title="jw-2002" metaDescription="jw-2002 website root">
-  <section class="page-header">
-    <p class="status-label">Desktop Start Menu</p>
-  </section>
+<DefaultTemplate
+  title="Jack Williamson — Software Engineer"
+  metaDescription="CV of Jack Williamson, Software Engineer and Full-stack Web Developer specialising in .NET and React."
+>
+  <div id="cv-hero" class="cv-hero">
+    <div class="cv-hero-spacer" aria-hidden="true"></div>
+    <CVHeader name="JACK WILLIAMSON" subtitle="Software Engineer | Full-stack Web Developer – .NET & React" />
+    <button id="scroll-prompt" class="scroll-prompt" aria-label="Scroll to CV content">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
 
-  <Carousel slides={slides} />
+  <div id="cv-sections">
+    <CVSection title="Personal Information">
+      <div class="stack">
+        <p><strong>Location:</strong> [City, Country]</p>
+        <p><strong>Email:</strong> <a href="mailto:jack.williamson@kana.earth">jack.williamson@kana.earth</a></p>
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/jw-2002" target="_blank" rel="noopener">github.com/jw-2002</a>
+        </p>
+        <p>
+          <strong>LinkedIn:</strong>
+          <a href="https://linkedin.com/in/[your-handle]" target="_blank" rel="noopener"
+            >linkedin.com/in/[your-handle]</a
+          >
+        </p>
+      </div>
+    </CVSection>
 
-  <section class="card stack">
-    <h2>Quick links</h2>
-    <p>
-      Prefer inline links? Try this:
-      <a class="text-link" href={link("/demos")}>open demos as text-link</a>.
-    </p>
-    <ul class="list-clean">
-      <li>
-        <a href={link("/demos")}>Open the demos library</a>
-      </li>
-      <li>
-        Drop <code>.mp3</code> and <code>.mp4</code> files into <code>public/media</code>.
-      </li>
-      <li>Refresh the page and they appear automatically.</li>
-    </ul>
-  </section>
+    <CVSection title="Profile">
+      <p>
+        A passionate and pragmatic software engineer with experience building full-stack web applications using .NET and
+        React. Focused on writing clean, maintainable code and delivering well-crafted products that solve real
+        problems. [Edit this summary to reflect your background and ambitions.]
+      </p>
+    </CVSection>
+
+    <CVSection title="Technical Skills">
+      <div class="stack">
+        <div>
+          <p><strong>Backend</strong></p>
+          <p>C#, .NET 8, ASP.NET Core, REST APIs, GraphQL – HotChocolate, EF Core, Dapper, LINQ, Python, SQL – PostgreSQL, Dependency Injection, JWT</p>
+        </div>
+        <hr class="divider" />
+        <div>
+          <p><strong>Frontend</strong></p>
+          <p>React, TypeScript, JavaScript, React Router, React Hooks, CSS, Axios, Storybook, Jest</p>
+        </div>
+        <hr class="divider" />
+        <div>
+          <p><strong>Other</strong></p>
+          <p>Azure, Terraform, Docker, Git, CAP, Airflow</p>
+        </div>
+      </div>
+    </CVSection>
+
+    <CVSection title="Professional Experience">
+      <div class="stack">
+        <div class="cv-role">
+          <div class="cv-role-header">
+            <strong>Software Developer</strong>
+            <span class="cv-role-date">Jan 2025 – Present</span>
+          </div>
+          <p class="cv-role-company">Kana Earth, London</p>
+          <ul class="cv-list">
+            <li>Owned end-to-end feature delivery, translating business requirements into technical solutions across frontend, backend, database, and deployment workflows.</li>
+            <li>Collaborated with product managers and the wider product team to refine requirements, produce technical specifications, and estimate implementation effort for new features.</li>
+            <li>Implemented architectural improvements and refactoring across frontend and backend applications to improve scalability and reliability.</li>
+            <li>Designed and implemented reusable frontend and backend patterns to improve consistency and reduce duplicated implementation across applications.</li>
+            <li>Contributed to event-driven backend workflows using CAP event bus patterns to support asynchronous processing and service decoupling.</li>
+            <li>Supported deployment and infrastructure management through CI/CD pipelines, Azure troubleshooting, and Terraform-based workflows.</li>
+            <li>Troubleshot and resolved production issues under tight time constraints while maintaining application stability and reliability.</li>
+            <li>Mentored junior developers through pair programming, code reviews, and guidance on React, TypeScript, and frontend development best practices.</li>
+            <li>Adopted AI-assisted engineering workflows using Codex and Claude Code, supported by repository-level AGENTS.md / CLAUDE.md guidance and Skills, to accelerate delivery while maintaining consistency across the codebase.</li>
+          </ul>
+        </div>
+        <hr class="divider" />
+        <div class="cv-role">
+          <div class="cv-role-header">
+            <strong>Junior Software Developer</strong>
+            <span class="cv-role-date">Jul 2022 – Jan 2025</span>
+          </div>
+          <p class="cv-role-company">Kana Earth, London</p>
+          <ul class="cv-list">
+            <li>Worked as part of the product team to develop authenticated web portals and public-facing applications using React (TypeScript) and ASP.NET Core (C#).</li>
+            <li>Implemented a modular component system using React components and hooks, supported by Storybook documentation and automated Jest testing to maintain component reliability and UI consistency.</li>
+            <li>Designed and developed REST and GraphQL APIs implementing batching, caching, and CQRS to support efficient and scalable application data flows.</li>
+            <li>Led the development of a configurable website built using Umbraco CMS in one month, providing an in-house alternative to a ~£40,000 agency quote.</li>
+            <li>Wrote and maintained versioned SQL migration scripts for schema updates and data transformations.</li>
+            <li>Participated in code reviews within a Git-based development workflow, ensuring code quality, maintainability, and consistency with existing patterns.</li>
+          </ul>
+        </div>
+      </div>
+    </CVSection>
+
+    <CVSection title="Education / Qualifications">
+      <div class="stack">
+        <div class="cv-role">
+          <div class="cv-role-header">
+            <strong>B.Sc. (Hons) Computer Science – First Class</strong>
+            <span class="cv-role-date">Sep 2020 – Jul 2023</span>
+          </div>
+          <p class="cv-role-company">The University of Sheffield</p>
+        </div>
+        <hr class="divider" />
+        <div class="cv-role">
+          <div class="cv-role-header">
+            <strong>A-Levels: Computer Science (A), Mathematics (A), Physics (A)</strong>
+            <span class="cv-role-date">Sep 2018 – Jul 2020</span>
+          </div>
+          <p class="cv-role-company">South Cheshire College, Crewe</p>
+        </div>
+        <hr class="divider" />
+        <div class="cv-role">
+          <div class="cv-role-header">
+            <strong>GCSEs: 10 (A*–C)</strong>
+            <span class="cv-role-date">Sep 2013 – Jul 2018</span>
+          </div>
+          <p class="cv-role-company">Sandbach Boys School, Sandbach</p>
+        </div>
+      </div>
+    </CVSection>
+  </div>
 </DefaultTemplate>
+
+<style>
+  /* ── Hero landing area ─────────────────────────────────────────── */
+  .cv-hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: calc(-1 * var(--space-lg));
+    /* animate the hero shrinking */
+    transition: min-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Flex spacer above the header — shrinks away to pull header to the top */
+  .cv-hero-spacer {
+    flex: 1;
+    min-height: 0;
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ── Collapsed: sticky header ──────────────────────────────────── */
+  .cv-hero.collapsed {
+    min-height: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--color-bg);
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition:
+      min-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 200ms ease;
+  }
+
+  .cv-hero.collapsed .cv-hero-spacer {
+    flex: 0;
+  }
+
+  /* Subtle underline once content scrolls beneath the sticky header */
+  .cv-hero.collapsed.scrolled {
+    border-bottom-color: var(--color-border);
+  }
+
+  /* Tighten header once collapsed so gap to sections is small */
+  .cv-hero.collapsed :global(.cv-header) {
+    padding-bottom: var(--space-sm);
+    margin-bottom: 0;
+  }
+
+  /* ── Scroll-down prompt ────────────────────────────────────────── */
+  .scroll-prompt {
+    position: absolute;
+    bottom: calc(var(--space-xl) + var(--space-md));
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-muted);
+    padding: 0;
+    opacity: 0;
+    animation:
+      cv-prompt-fade 0.6s ease forwards 2.3s,
+      cv-prompt-bounce 1.4s ease-in-out infinite 3s;
+    transition:
+      opacity 0.25s ease,
+      color var(--transition),
+      border-color var(--transition);
+  }
+
+  .scroll-prompt:hover {
+    color: var(--color-text);
+    border-color: var(--color-border-strong);
+  }
+
+  /* ── Sections — hidden until revealed ─────────────────────────── */
+  #cv-sections {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    /* small top gap once visible, between sticky header and first section */
+    padding-top: var(--space-md);
+  }
+
+  #cv-sections.visible {
+    height: auto;
+    overflow: visible;
+    visibility: visible;
+    pointer-events: auto;
+    animation: cv-sections-reveal 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+    /* delay slightly so the hero starts collapsing first */
+    animation-delay: 0.15s;
+  }
+
+  /* ── Role styles ───────────────────────────────────────────────── */
+  .cv-role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .cv-role-date {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .cv-role-company {
+    color: var(--color-muted);
+    margin-bottom: var(--space-xs);
+  }
+
+  .cv-role {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .cv-list {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: var(--space-2xs);
+    color: var(--color-text);
+  }
+
+  /* ── Keyframes ─────────────────────────────────────────────────── */
+  @keyframes cv-prompt-fade {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes cv-prompt-bounce {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(7px);
+    }
+  }
+
+  @keyframes cv-sections-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  const promptBtn = document.getElementById("scroll-prompt")!;
+  const hero = document.getElementById("cv-hero")!;
+  const sections = document.getElementById("cv-sections")!;
+  let revealed = false;
+
+  // ── Reveal ──────────────────────────────────────────────────────
+  function reveal() {
+    if (revealed) return;
+    revealed = true;
+
+    // Fade out and fully remove prompt from layout after transition
+    promptBtn.style.opacity = "0";
+    promptBtn.style.pointerEvents = "none";
+    promptBtn.addEventListener("transitionend", () => (promptBtn.style.display = "none"), {
+      once: true,
+    });
+
+    // Collapse hero (spacer shrinks → header slides to top, becomes sticky)
+    hero.classList.add("collapsed");
+
+    // Un-hide sections — force reflow so the CSS animation fires from `from`
+    sections.style.height = "auto";
+    sections.style.overflow = "visible";
+    sections.style.visibility = "visible";
+    void sections.offsetHeight;
+    sections.classList.add("visible");
+  }
+
+  // ── Reset (return to hero) ───────────────────────────────────────
+  function reset() {
+    // Jump to top so the expanding hero is visible
+    window.scrollTo({ top: 0, behavior: "instant" });
+
+    // Hide sections immediately
+    sections.classList.remove("visible");
+    sections.style.height = "0";
+    sections.style.overflow = "hidden";
+    sections.style.visibility = "hidden";
+
+    // Expand hero on next frame (transition fires from 0 → 100vh)
+    requestAnimationFrame(() => {
+      hero.classList.remove("collapsed", "scrolled");
+      promptBtn.style.display = "";
+      promptBtn.style.opacity = "1";
+      promptBtn.style.pointerEvents = "";
+      revealed = false;
+      setupRevealListeners();
+    });
+  }
+
+  // ── Event listeners ─────────────────────────────────────────────
+  function setupRevealListeners() {
+    promptBtn.addEventListener("click", (e) => { e.stopPropagation(); reveal(); });
+    window.addEventListener("wheel", reveal, { once: true, passive: true });
+    window.addEventListener("touchstart", reveal, { once: true, passive: true });
+    window.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key === "ArrowDown" || e.key === " " || e.key === "PageDown" || e.key === "Enter") {
+          e.preventDefault();
+          reveal();
+        }
+      },
+      { once: true },
+    );
+  }
+
+  setupRevealListeners();
+
+  // Clicking the collapsed sticky header returns to hero
+  hero.addEventListener("click", () => {
+    if (hero.classList.contains("collapsed")) reset();
+  });
+
+  // Subtle underline when content scrolls beneath sticky header
+  window.addEventListener("scroll", () => {
+    if (revealed) hero.classList.toggle("scrolled", window.scrollY > 10);
+  });
+
+  // Belt-and-braces: hide prompt as soon as sections enter the viewport
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        promptBtn.style.opacity = "0";
+        promptBtn.style.pointerEvents = "none";
+        promptBtn.style.display = "none";
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1 },
+  );
+  observer.observe(sections);
+</script>
