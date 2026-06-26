@@ -5,7 +5,7 @@ interface Props {
 }
 
 import BaseLayout from "../BaseLayout/BaseLayout.astro";
-import "./DefaultTemplate.css";
+import Footer from "../Footer/Footer.astro";
 
 const { title, metaDescription } = Astro.props;
 ---
@@ -14,4 +14,5 @@ const { title, metaDescription } = Astro.props;
   <main>
     <slot />
   </main>
+  <Footer />
 </BaseLayout>

@@ -1,38 +1,46 @@
 .cv-header {
-  padding-bottom: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  position: relative;
   text-align: center;
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* Underline rule beneath the header — drawn in from the centre on load */
+.cv-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cv-header::after {
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: cv-rule-draw 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  }
+
+  @keyframes cv-rule-draw {
+    to {
+      transform: scaleX(1);
+    }
+  }
 }
 
 .cv-header-name {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw + 1rem, 3rem);
+  font-size: clamp(2rem, 4vw + 1rem, 2.75rem);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--color-text);
-  margin-bottom: var(--space-xs);
 }
 
 .cv-header-subtitle {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
   font-style: italic;
   color: var(--color-muted);
-  letter-spacing: 0.03em;
-  margin-bottom: var(--space-lg);
-}
-
-.cv-header-rule {
-  height: 2px;
-  background-color: var(--color-text);
-  transform: scaleX(0);
-  transform-origin: center;
-  animation: cv-rule-expand 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 0.4s;
-}
-
-@keyframes cv-rule-expand {
-  to {
-    transform: scaleX(1);
-  }
+  letter-spacing: 0.02em;
+  margin-top: var(--space-2xs);
 }

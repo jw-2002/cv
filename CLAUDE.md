@@ -18,10 +18,10 @@ A single-page digital CV for Jack Williamson, hosted on GitHub Pages at `jw-2002
 src/
   components/
     BaseLayout/        # Root HTML shell — global styles, meta tags
-    DefaultTemplate/   # Page wrapper: BaseLayout + <main> slot
-    CVHeader/          # Name and subtitle banner at the top of the CV
-    CVSection/         # Collapsible section (uses native <details>/<summary>)
-    index.ts           # Re-exports for all components
+    DefaultTemplate/   # Page wrapper: BaseLayout + <main> slot + Footer
+    CVHeader/          # Name and subtitle at the top of the CV
+    CVSection/         # Collapsible accordion section (native <details>)
+    Footer/            # Copyright, social links, build credit
   pages/
     index.astro        # The CV page — single page, all content lives here
   styles/
@@ -40,7 +40,8 @@ Check these existing components first — extend or compose them before creating
 | `BaseLayout` | `src/components/BaseLayout/BaseLayout.astro` | Root HTML, meta tags, global style imports |
 | `DefaultTemplate` | `src/components/DefaultTemplate/DefaultTemplate.astro` | Full-page shell (BaseLayout + `<main>`) |
 | `CVHeader` | `src/components/CVHeader/CVHeader.astro` | Name + subtitle header at top of page |
-| `CVSection` | `src/components/CVSection/CVSection.astro` | Collapsible section with `title` and `open` props |
+| `CVSection` | `src/components/CVSection/CVSection.astro` | Collapsible section with a `title`; optional `open` prop |
+| `Footer` | `src/components/Footer/Footer.astro` | Copyright, social links, build credit |
 
 ## File conventions
 
@@ -59,33 +60,32 @@ Key tokens:
 |-------|-------|-----|
 | `--font-heading` | EB Garamond, serif | All headings (`h1`–`h4`) |
 | `--font-body` | Arial, sans-serif | Body text, labels, UI |
-| `--color-bg` | `#faf8f5` | Page background |
-| `--color-surface` | `#ffffff` | Card/panel backgrounds |
+| `--color-bg` | `#f4f0e8` | Page background |
 | `--color-text` | `#111111` | Primary text |
 | `--color-muted` | `#555555` | Secondary / meta text |
 | `--color-border` | `#d0cdc8` | Subtle dividers |
-| `--color-border-strong` | `#999999` | Stronger dividers |
+| `--color-border-strong` | `#444444` | Stronger dividers (header/section rules) |
 
-Utility classes available from `global.css`: `.stack`, `.stack-xs`, `.divider`.
+Utility classes available from `global.css`: `.stack`, `.divider`.
 
 ## CVSection usage
 
-`CVSection` wraps each CV section in a native `<details>` element. Pass `open={true}` to start expanded.
+`CVSection` wraps each section in a native `<details>` accordion. Pass `open={true}` to start expanded. Only one section stays open at a time (opening one closes the others, via the component's script).
 
 ```astro
-<CVSection title="Professional Experience">
-  <!-- content -->
+<CVSection title="Profile" open={true}>
+  <!-- starts expanded -->
 </CVSection>
 
-<CVSection title="Personal Information" open={true}>
-  <!-- starts open -->
+<CVSection title="Professional Experience">
+  <!-- starts collapsed -->
 </CVSection>
 ```
 
 ## Astro-specific rules
 
 - Use `import.meta.env.BASE_URL` wherever paths are constructed — never hardcode `/`
-- Keep client-side JS to an absolute minimum; the collapsible sections use zero JS (native `<details>`)
+- Keep client-side JS to an absolute minimum (currently just the accordion toggle and the scroll-reveal IntersectionObserver); always guard motion behind `prefers-reduced-motion`
 - Prefer static rendering; avoid `client:*` directives unless genuinely necessary
 
 ## Do not

@@ -3,7 +3,6 @@
   --font-body: Arial, Helvetica, sans-serif;
 
   --color-bg: #f4f0e8;
-  --color-surface: #ffffff;
   --color-text: #111111;
   --color-muted: #555555;
   --color-border: #d0cdc8;
@@ -14,8 +13,6 @@
   --space-sm: 0.85rem;
   --space-md: 1.25rem;
   --space-lg: 2rem;
-  --space-xl: 3rem;
 
-  --radius: 2px;
   --transition: 150ms ease;
 }

@@ -20,24 +20,39 @@ const { title, open = false } = Astro.props;
 </details>
 
 <script>
-  document.querySelectorAll<HTMLDetailsElement>(".cv-section").forEach((details) => {
-    const summary = details.querySelector(".cv-section-summary")!;
+  const sections = document.querySelectorAll<HTMLDetailsElement>(".cv-section");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Animate a section closed, then drop `open` once the animation ends
+  function close(details: HTMLDetailsElement) {
+    if (reduceMotion) {
+      details.open = false;
+      return;
+    }
     const body = details.querySelector<HTMLElement>(".cv-section-body")!;
+    body.classList.add("closing");
+    body.addEventListener(
+      "animationend",
+      () => {
+        body.classList.remove("closing");
+        details.open = false;
+      },
+      { once: true },
+    );
+  }
 
-    summary.addEventListener("click", (e) => {
-      if (!details.open) return; // opening — let the browser handle it, CSS animates
-
-      // Closing — animate out before removing `open`
-      e.preventDefault();
-      body.classList.add("closing");
-      body.addEventListener(
-        "animationend",
-        () => {
-          body.classList.remove("closing");
-          details.open = false;
-        },
-        { once: true },
-      );
+  sections.forEach((details) => {
+    details.querySelector(".cv-section-summary")!.addEventListener("click", (e) => {
+      if (details.open) {
+        // Clicking the open section — animate it closed
+        e.preventDefault();
+        close(details);
+        return;
+      }
+      // Opening this one — accordion: close any other open section
+      sections.forEach((other) => {
+        if (other !== details && other.open) close(other);
+      });
     });
   });
 </script>

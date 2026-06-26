@@ -19,14 +19,14 @@ body {
   line-height: 1.65;
   background-color: var(--color-bg);
   color: var(--color-text);
-  padding: var(--space-md);
+  padding: 0 var(--space-md) var(--space-md);
 }
 
 main {
   width: 100%;
   max-width: 860px;
   margin: 0 auto;
-  padding: var(--space-lg) 0;
+  padding: 0;
 }
 
 h1,
@@ -67,17 +67,20 @@ a {
   color: var(--color-text);
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: opacity var(--transition);
+  transition:
+    opacity var(--transition),
+    text-underline-offset var(--transition);
 }
 
 a:hover {
   opacity: 0.6;
+  text-underline-offset: 5px;
 }
 
 .divider {
   border: none;
   border-top: 1px solid var(--color-border);
-  margin: var(--space-md) 0;
+  margin: var(--space-xs) 0;
 }
 
 .stack {
@@ -85,13 +88,8 @@ a:hover {
   gap: var(--space-sm);
 }
 
-.stack-xs {
-  display: grid;
-  gap: var(--space-xs);
-}
-
 @media (min-width: 720px) {
   body {
-    padding: var(--space-lg);
+    padding: 0 var(--space-lg) var(--space-lg);
   }
 }

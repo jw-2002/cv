@@ -2,6 +2,11 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+/* Highlight the open section's bottom rule */
+.cv-section[open] {
+  border-bottom-color: var(--color-text);
+}
+
 .cv-section-summary {
   display: flex;
   align-items: center;
@@ -18,46 +23,56 @@
 
 .cv-section-title {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.05rem;
+  font-weight: 600;
   font-variant-caps: small-caps;
+  text-transform: none;
   letter-spacing: 0.06em;
   color: var(--color-text);
+  transition: transform var(--transition);
+}
+
+/* Nudge the heading on hover to signal the row is interactive */
+.cv-section-summary:hover .cv-section-title {
+  transform: translateX(3px);
 }
 
 .cv-section-arrow {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--color-muted);
-  transition: transform var(--transition);
+  transition:
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    color var(--transition);
   line-height: 1;
   transform: rotate(0deg);
 }
 
+.cv-section-summary:hover .cv-section-arrow {
+  color: var(--color-text);
+}
+
 .cv-section[open] .cv-section-arrow {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
 }
 
 .cv-section-body {
   padding-bottom: var(--space-lg);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--color-text);
   overflow: hidden;
 }
 
 .cv-section[open] .cv-section-body {
-  animation: cv-body-open 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: cv-body-open 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
+/* Reverse of the open animation, played by JS just before `open` is removed */
 .cv-section-body.closing {
-  animation: cv-body-close 0.22s cubic-bezier(0.4, 0, 0.2, 1) both !important;
+  animation: cv-body-close 0.4s cubic-bezier(0.4, 0, 0.2, 1) both !important;
 }
 
 @keyframes cv-body-open {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -72,6 +87,17 @@
   }
   to {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-section-arrow,
+  .cv-section-title {
+    transition: none;
+  }
+
+  .cv-section[open] .cv-section-body {
+    animation: none;
   }
 }

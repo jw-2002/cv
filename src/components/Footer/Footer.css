@@ -1,0 +1,105 @@
+.cv-footer {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  /* Same gap from the sections that the header uses (md → lg at ≥720px) */
+  margin: var(--space-md) auto 0;
+  padding-top: var(--space-md);
+}
+
+@media (min-width: 720px) {
+  .cv-footer {
+    margin-top: var(--space-lg);
+  }
+}
+
+/* Top rule — drawn in from the centre on load, mirroring the header rule */
+.cv-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cv-footer::before {
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: cv-rule-draw 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  }
+
+  @keyframes cv-rule-draw {
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.cv-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.cv-footer-copy {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.cv-footer-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+}
+
+.cv-footer-links a {
+  display: inline-flex;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.cv-footer-links a:hover {
+  opacity: 1;
+}
+
+.cv-footer-link--linkedin:hover {
+  color: #0a66c2;
+}
+
+.cv-footer-link--github:hover {
+  color: #0fbf3e;
+}
+
+.cv-footer-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}
+
+.cv-footer-note {
+  margin-top: var(--space-sm);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* Centre the footer when it wraps on small screens */
+@media (max-width: 480px) {
+  .cv-footer-top {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cv-footer-note {
+    text-align: center;
+  }
+}
