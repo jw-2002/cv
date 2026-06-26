@@ -15,4 +15,30 @@
   --space-lg: 2rem;
 
   --transition: 150ms ease;
+
+  color-scheme: light;
+}
+
+/* ── Dark theme — warm near-black to keep the professional feel ──────── */
+:root[data-theme="dark"] {
+  --color-bg: #16140f;
+  --color-text: #ededea;
+  --color-muted: #9c968a;
+  --color-border: #322e27;
+  --color-border-strong: #6a6458;
+
+  color-scheme: dark;
+}
+
+/* No-JS fallback: follow the OS preference unless an explicit choice was set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #16140f;
+    --color-text: #ededea;
+    --color-muted: #9c968a;
+    --color-border: #322e27;
+    --color-border-strong: #6a6458;
+
+    color-scheme: dark;
+  }
 }

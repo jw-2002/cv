@@ -86,6 +86,46 @@
   display: block;
 }
 
+/* ── Dark-mode toggle ─────────────────────────────────────────────── */
+.cv-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  transition: color var(--transition);
+}
+
+.cv-theme-toggle:hover {
+  color: var(--color-text);
+}
+
+.cv-theme-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Show the moon in light mode (click → dark), the sun in dark mode (click → light) */
+.cv-theme-icon--sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .cv-theme-icon--sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .cv-theme-icon--moon {
+  display: none;
+}
+
 .cv-footer-note {
   margin-top: var(--space-sm);
   font-size: 0.75rem;
