@@ -2,7 +2,7 @@
 
 ## Project overview
 
-A single-page digital CV for Jack Williamson, hosted on GitHub Pages at `jw-2002.github.io`. The design is clean and professional — business-card aesthetic with an eggshell background, near-black text, EB Garamond headings, and Arial body copy.
+A single-page digital CV for Jack Williamson, hosted on GitHub Pages at `jw-2002.github.io/cv` (repo `jw-2002/cv`; `base: "/cv"` in `astro.config.mjs` must match the repo name). The design is clean and professional — business-card aesthetic with an eggshell background, near-black text, EB Garamond headings, and Arial body copy.
 
 ## Tech stack
 
