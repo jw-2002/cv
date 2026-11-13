@@ -19,6 +19,11 @@ const skills = [
       "SQL – PostgreSQL",
       "Dependency Injection",
       "JWT",
+      "CAP",
+      "OAuth 2.0",
+      "Model Context Protocol (MCP)",
+      "Hangfire",
+      "xUnit",
     ],
   },
   {
@@ -26,27 +31,32 @@ const skills = [
     items: ["React", "TypeScript", "JavaScript", "React Router", "React Hooks", "CSS", "Axios", "Storybook", "Jest"],
   },
   {
-    group: "Other",
-    items: ["Azure", "Terraform", "Docker", "Git", "CAP", "Airflow"],
+    group: "Cloud, DevOps & Tooling",
+    items: ["Azure", "Terraform", "Docker", "Airflow", "CI/CD", "Git"],
   },
 ];
 ---
 
 <DefaultTemplate
-  title="Jack Williamson — Full-stack Web Developer"
-  metaDescription="CV of Jack Williamson, Full-stack Web Developer specialising in React, TypeScript and .NET."
+  title="Jack Williamson — Full-Stack .NET & React Developer"
+  metaDescription="CV of Jack Williamson, Full-Stack .NET & React Developer specialising in C#, .NET, TypeScript and Azure."
 >
   <div class="cv-header-wrap">
-    <CVHeader name="JACK WILLIAMSON" subtitle="Full-stack Web Developer — React & .NET" />
+    <CVHeader
+      name="JACK WILLIAMSON"
+      subtitle="Full-Stack .NET & React Developer | C# | .NET | TypeScript | Azure | Available Immediately"
+    />
   </div>
 
   <CVSection title="Profile" open={true}>
     <p class="cv-profile">
-      Full-stack Web Developer with 3+ years' commercial experience delivering and maintaining modern web applications
-      using <b>React, TypeScript, C#, .NET, and Azure</b>. Experienced in owning features end-to-end from business-level
-      requirements through development and deployment, working closely with product teams to deliver practical solutions
-      to business problems. Proven ability to collaborate with cross-functional teams, mentor junior developers, and
-      deliver software in fast-paced product environments.
+      Full-stack Web Developer with 4+ years' experience designing, developing, and maintaining modern web applications
+      using <b>React, TypeScript, C#, .NET, and Azure</b>. Experienced in owning features end-to-end, from understanding
+      business requirements and designing technical solutions through to implementation and deployment, working closely
+      with product teams to deliver solutions that address business needs. Strong understanding of API design,
+      application architecture, and modern development practices, with a proven ability to collaborate with
+      cross-functional teams, mentor junior developers, and deliver scalable, maintainable software in fast-paced product
+      environments.
     </p>
   </CVSection>
 
@@ -82,6 +92,17 @@ const skills = [
         </p>
         <ul class="cv-list">
           <li>
+            Designed and implemented a <strong>Model Context Protocol (MCP)</strong> server integrated with an existing
+            <strong>.NET</strong> API, secured with an <strong>OAuth 2.0</strong> authentication layer around the existing
+            login journey so Claude can securely authenticate and execute application operations using existing user
+            permissions.
+          </li>
+          <li>
+            Implemented a native <strong>.NET Hangfire</strong> scheduler to replace an oversized
+            <strong>Apache Airflow</strong> instance used for task scheduling, decommissioning an extra Azure service to
+            reduce cloud hosting costs and maintenance overhead.
+          </li>
+          <li>
             Owned end-to-end feature delivery, translating business requirements into technical solutions across
             frontend, backend, database, and deployment workflows.
           </li>
@@ -90,16 +111,13 @@ const skills = [
             specifications, and estimate implementation effort for new features.
           </li>
           <li>
-            Implemented architectural improvements and refactoring across frontend and backend applications to improve
-            scalability and reliability.
-          </li>
-          <li>
             Designed and implemented reusable frontend and backend patterns to improve consistency and reduce duplicated
             implementation across applications.
           </li>
           <li>
-            Contributed to event-driven backend workflows using <strong>CAP</strong> event bus patterns to support asynchronous
-            processing and service decoupling.
+            Contributed to event-driven backend workflows using <strong>CAP</strong> and the
+            <strong>transactional outbox pattern</strong> with <strong>PostgreSQL</strong>, ensuring reliable asynchronous
+            processing and guaranteed message consistency without external broker overhead.
           </li>
           <li>
             Supported deployment and infrastructure management through <strong>CI/CD</strong> pipelines,
@@ -131,6 +149,10 @@ const skills = [
         </p>
         <ul class="cv-list">
           <li>
+            Led the development of a configurable website using <strong>Umbraco CMS</strong>, delivering an in-house
+            solution in one month as an alternative to a <strong>£90,000</strong> external agency quote.
+          </li>
+          <li>
             Worked as part of the product team to develop authenticated web portals and public-facing applications with <strong
               >React (TypeScript)</strong
             > and <strong>ASP.NET Core (C#)</strong>.
@@ -144,10 +166,6 @@ const skills = [
             Designed and developed <strong>REST</strong> and <strong>GraphQL APIs</strong> implementing
             <strong>batching</strong>, <strong>caching</strong>, and <strong>CQRS</strong> to support efficient and scalable
             application data flows.
-          </li>
-          <li>
-            Led the development of a configurable website built using <strong>Umbraco CMS</strong> in one month, providing
-            an in-house alternative to a <strong>~£40,000</strong> agency quote.
           </li>
           <li>
             Wrote and maintained versioned <strong>SQL</strong> migration scripts for schema updates and data transformations.
@@ -180,16 +198,6 @@ const skills = [
         </div>
         <p class="cv-role-company">
           <a href="https://www.ccsw.ac.uk/" target="_blank" rel="noopener noreferrer">South Cheshire College</a>, Crewe
-        </p>
-      </div>
-      <hr class="divider" />
-      <div class="cv-role">
-        <div class="cv-role-header">
-          <strong>GCSEs: 10 (A*–C)</strong>
-          <span class="cv-role-date">Sep 2013 – Jul 2018</span>
-        </div>
-        <p class="cv-role-company">
-          <a href="https://sandbachschool.org/" target="_blank" rel="noopener noreferrer">Sandbach Boys School</a>, Sandbach
         </p>
       </div>
     </div>
@@ -248,22 +256,19 @@ const skills = [
     gap: var(--space-2xs) var(--space-md);
   }
 
-  /* ── Shared hover-indent: left accent + nudge on hover ────────────── */
+  /* ── Hover accent: colour-only (no layout shift) so text never moves ── */
   .cv-role,
   .cv-skill-group,
   .cv-profile {
     padding-left: var(--space-sm);
     border-left: 2px solid transparent;
-    transition:
-      border-color 200ms ease,
-      padding-left 200ms ease;
+    transition: border-color 200ms ease;
   }
 
   .cv-role:hover,
   .cv-skill-group:hover,
   .cv-profile:hover {
     border-left-color: var(--color-border-strong);
-    padding-left: var(--space-md);
   }
 
   /* ── Role entries (experience + education) ────────────────────────── */

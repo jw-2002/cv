@@ -29,12 +29,6 @@
   text-transform: none;
   letter-spacing: 0.06em;
   color: var(--color-text);
-  transition: transform var(--transition);
-}
-
-/* Nudge the heading on hover to signal the row is interactive */
-.cv-section-summary:hover .cv-section-title {
-  transform: translateX(3px);
 }
 
 .cv-section-arrow {
@@ -92,8 +86,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cv-section-arrow,
-  .cv-section-title {
+  .cv-section-arrow {
     transition: none;
   }
 

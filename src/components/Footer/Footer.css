@@ -55,9 +55,15 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-2xs);
   margin: 0;
   padding: 0;
+}
+
+/* Icon buttons get a 36px+ hit area (Lighthouse / WCAG target size) */
+.cv-footer-links a,
+.cv-theme-toggle {
+  padding: var(--space-xs);
 }
 
 .cv-footer-links a {
@@ -79,6 +85,10 @@
   color: #0fbf3e;
 }
 
+.cv-footer-link--download:hover {
+  color: var(--color-text);
+}
+
 .cv-footer-icon {
   width: 20px;
   height: 20px;
@@ -90,7 +100,6 @@
 .cv-theme-toggle {
   display: inline-flex;
   align-items: center;
-  padding: 0;
   background: none;
   border: none;
   cursor: pointer;

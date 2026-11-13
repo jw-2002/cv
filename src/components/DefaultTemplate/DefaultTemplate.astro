@@ -11,7 +11,7 @@ const { title, metaDescription } = Astro.props;
 ---
 
 <BaseLayout title={title} description={metaDescription}>
-  <main>
+  <main id="main-content" tabindex="-1">
     <slot />
   </main>
   <Footer />

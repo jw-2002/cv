@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
-
 *,
 *::before,
 *::after {
@@ -9,6 +7,33 @@
 html,
 body {
   min-height: 100%;
+}
+
+/* Keep focused elements clear of the sticky header */
+html {
+  scroll-padding-top: 8rem;
+}
+
+/* Visible keyboard focus for every interactive element */
+:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+
+/* Skip link — visible only when focused */
+.skip-link {
+  position: absolute;
+  left: var(--space-md);
+  top: 0;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translateY(-120%);
+  z-index: 20;
+}
+
+.skip-link:focus {
+  transform: none;
 }
 
 body {
@@ -92,4 +117,8 @@ a:hover {
   body {
     padding: 0 var(--space-lg) var(--space-lg);
   }
+}
+
+main:focus {
+  outline: none;
 }
